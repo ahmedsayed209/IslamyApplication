@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamyapplication/core/application_theme_manager.dart';
 import 'package:islamyapplication/layout/layout_view.dart';
 import 'package:islamyapplication/modules/quran_view/Quran_details_view.dart';
+import 'package:islamyapplication/modules/splashView/splash_view.dart';
 
 void main()
 {
