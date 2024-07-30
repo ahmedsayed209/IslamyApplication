@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamyapplication/modules/Hadeith_view/hadith_details.dart';
 
 class hadithView extends StatefulWidget {
   const hadithView({super.key});
@@ -21,6 +22,17 @@ class _hadithViewState extends State<hadithView> {
         Divider(),
         Text("الاحاديث",style: theme.textTheme.bodyMedium,),
         Divider(),
+        Expanded(
+          child: ListView.builder(itemCount:dataList.length,itemBuilder: (context,index) =>
+              InkWell(
+                onTap: () =>Navigator.pushNamed(context,hadith_details.routename,
+                arguments: Hadith_Details(hadith_title:dataList[index].hadith_title,hadith_body:dataList[index].hadith_body)),
+                child: Text(
+                 dataList[index].hadith_title,style:theme.textTheme.bodyLarge,textAlign: TextAlign.center,
+                ),
+              )
+          ),
+        )
       ],
     );
   }
