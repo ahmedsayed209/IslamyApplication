@@ -59,7 +59,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/files/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -75,6 +78,13 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
+  fonts:
+    - family: El Messeri
+      fonts:
+        - asset: assets/fonts/ElMessiri-Bold.ttf
+        - asset: assets/fonts/ElMessiri-Medium.ttf
+        - asset: assets/fonts/ElMessiri-Regular.ttf
+        - asset: assets/fonts/ElMessiri-SemiBold.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
