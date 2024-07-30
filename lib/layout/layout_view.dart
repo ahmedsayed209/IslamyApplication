@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islamyapplication/modules/quran_view/Quran_view.dart';
 
 import '../modules/Hadeith_view/hadith_view.dart';
 
