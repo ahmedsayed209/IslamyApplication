@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamyapplication/modules/Radio_view/radio_view.dart';
 import 'package:islamyapplication/modules/Settings_View/settings_view.dart';
 import 'package:islamyapplication/modules/quran_view/Quran_view.dart';
+import 'package:islamyapplication/modules/tasbih_view/Tasbih_view.dart';
 
 import '../modules/Hadeith_view/hadith_view.dart';
 
