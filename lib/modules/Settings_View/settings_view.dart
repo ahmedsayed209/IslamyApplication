@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:islamyapplication/core/Settings_Provider.dart';
 
 class settingsView extends StatefulWidget {
 
@@ -23,6 +26,7 @@ class _settingsViewState extends State<settingsView> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var provider = SettingsProvider();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal:15,vertical:20),
       child: (
@@ -37,7 +41,15 @@ class _settingsViewState extends State<settingsView> {
                  items: lang_list,
                  initialItem: lang_list[0],
                  onChanged: (value) {
-                 // log('changing value to: $value');
+                   if (value == "English")
+                   {
+                     provider.changelanguage("en");
+                   }
+                   if (value =="عربي")
+                   {
+                     provider.changelanguage("ar");
+                   }
+                  log('changing value to: $value');
                }
     ),
           SizedBox(height:35,),
@@ -48,6 +60,7 @@ class _settingsViewState extends State<settingsView> {
               items: theme_list,
               initialItem: theme_list[0],
               onChanged: (value) {
+
                 // log('changing value to: $value');
               }
           )

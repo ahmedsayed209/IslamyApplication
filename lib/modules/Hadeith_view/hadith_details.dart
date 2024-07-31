@@ -9,7 +9,6 @@ class hadith_details extends StatefulWidget {
   @override
   State<hadith_details> createState() => _hadith_detailsState();
 }
-
 class _hadith_detailsState extends State<hadith_details> {
 
   @override
