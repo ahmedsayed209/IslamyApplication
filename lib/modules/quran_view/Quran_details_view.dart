@@ -18,7 +18,7 @@ class _quranDetailsViewState extends State<quranDetailsView> {
     if (content.isEmpty)loaddata(data.SuraNumber);
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/home_bacck.png"),fit:BoxFit.cover)
+          image: DecorationImage(image: AssetImage("assets/images/home_dark_background.png"),fit:BoxFit.cover)
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -34,7 +34,7 @@ class _quranDetailsViewState extends State<quranDetailsView> {
               right: 30,
               left: 20),
           decoration: BoxDecoration(
-            color: Color(0xFFF8F8F8).withOpacity(0.85),
+            color: Color(0xFF141A2E).withOpacity(0.85),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -44,7 +44,7 @@ class _quranDetailsViewState extends State<quranDetailsView> {
                 children: [
                   Text("سورة ${data.SuraName}",style: theme.textTheme.bodyMedium,),
                   SizedBox(width: 10,),
-                  Icon(Icons.play_circle_fill_rounded),
+                  Icon(Icons.play_circle_fill_rounded,color:Color(0xFFFACC1D),),
                 ],
               ),
               Divider(

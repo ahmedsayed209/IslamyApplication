@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      "assets/images/splash_background.png",
+      "assets/images/splash _1_background.png",
       fit: BoxFit.cover,
     );
   }

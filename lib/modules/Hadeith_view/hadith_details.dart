@@ -18,7 +18,7 @@ class _hadith_detailsState extends State<hadith_details> {
     var Content = ModalRoute.of(context)?.settings.arguments as Hadith_Details;
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/home_bacck.png"),fit:BoxFit.cover)
+          image: DecorationImage(image: AssetImage("assets/images/home_dark_background.png"),fit:BoxFit.cover)
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -34,7 +34,7 @@ class _hadith_detailsState extends State<hadith_details> {
               right: 30,
               left: 20),
           decoration: BoxDecoration(
-            color: Color(0xFFF8F8F8).withOpacity(0.85),
+            color: Color(0xFF141A2E).withOpacity(0.85),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -44,7 +44,7 @@ class _hadith_detailsState extends State<hadith_details> {
                 children: [
                   Text(Content.hadith_title,style: theme.textTheme.titleLarge,),
                   SizedBox(width: 10,),
-                  Icon(Icons.play_circle_fill_rounded),
+                  Icon(Icons.play_circle_fill_rounded,color:Colors.amberAccent,),
                 ],
               ),
               Divider(

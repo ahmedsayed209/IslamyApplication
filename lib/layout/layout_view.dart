@@ -31,7 +31,7 @@ class _layout_viewState extends State<layout_view> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/home_bacck.png"),
+            image: AssetImage("assets/images/home_dark_background.png"),
             fit: BoxFit.cover),
       ),
       child: Scaffold(

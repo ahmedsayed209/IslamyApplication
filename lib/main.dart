@@ -26,6 +26,8 @@ class MyApplicationIsalami extends StatelessWidget
       locale: Locale("en"),
       supportedLocales: AppLocalizations.supportedLocales,
       theme: ApplicationThemeManager.lightThemeData,
+      darkTheme: ApplicationThemeManager.DarkThemeData,
+      themeMode: ThemeMode.dark,
       initialRoute: "/",
       routes: {
         SplashView.routeName : (context) => SplashView(),
