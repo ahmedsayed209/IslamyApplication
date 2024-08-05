@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamyapplication/core/Settings_Provider.dart';
 import 'package:islamyapplication/modules/Radio_view/radio_view.dart';
 import 'package:islamyapplication/modules/Settings_View/settings_view.dart';
 import 'package:islamyapplication/modules/quran_view/Quran_view.dart';
 import 'package:islamyapplication/modules/tasbih_view/Tasbih_view.dart';
+import 'package:provider/provider.dart';
 
 import '../modules/Hadeith_view/hadith_view.dart';
 
@@ -28,10 +30,11 @@ class _layout_viewState extends State<layout_view> {
   Widget build(BuildContext context) {
     var Themee = Theme.of(context);
     var lang = AppLocalizations.of(context);
+    var provider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/home_dark_background.png"),
+            image: AssetImage(provider.getHomeBackgroud()),
             fit: BoxFit.cover),
       ),
       child: Scaffold(

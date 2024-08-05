@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 
 void main()
 {
-  runApp(ChangeNotifierProvider(create: (context) => SettingsProvider()
+  runApp(ChangeNotifierProvider(create: (context) => SettingsProvider() // Create The Singelton Object To be The Only instance object that created from this class
       ,child: MyApplicationIsalami()));
 }
 
@@ -22,7 +22,7 @@ class MyApplicationIsalami extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    var provider = SettingsProvider();
+    var provider = Provider.of<SettingsProvider>(context);
     return MaterialApp(
       title: "IslamiApp",
       debugShowCheckedModeBanner: false,
@@ -30,8 +30,8 @@ class MyApplicationIsalami extends StatelessWidget
       locale: Locale(provider.CuurentLang),
       supportedLocales: AppLocalizations.supportedLocales,
       theme: ApplicationThemeManager.lightThemeData,
-      darkTheme: ApplicationThemeManager.lightThemeData,
-      themeMode: ThemeMode.light,
+      darkTheme: ApplicationThemeManager.DarkThemeData,
+      themeMode: provider.currentThemeMode,
       initialRoute: "/",
       routes: {
         SplashView.routeName : (context) => SplashView(),

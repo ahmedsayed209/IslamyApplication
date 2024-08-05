@@ -122,7 +122,7 @@ class ApplicationThemeManager {
           color: Colors.white),
 
     ),
-    dividerTheme: DividerThemeData(
+    dividerTheme: const DividerThemeData(
         color: darkPrimaryColor,
         thickness: 5
     ),
