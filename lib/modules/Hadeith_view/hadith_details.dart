@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islamyapplication/core/Settings_Provider.dart';
 import 'package:islamyapplication/modules/Hadeith_view/hadith_view.dart';
+import 'package:provider/provider.dart';
 
 class hadith_details extends StatefulWidget {
    static const  String routename = "hadith_details";
@@ -9,16 +11,17 @@ class hadith_details extends StatefulWidget {
   @override
   State<hadith_details> createState() => _hadith_detailsState();
 }
-
 class _hadith_detailsState extends State<hadith_details> {
 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var provider = Provider.of<SettingsProvider>(context);
     var Content = ModalRoute.of(context)?.settings.arguments as Hadith_Details;
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage("assets/images/home_bacck.png"),fit:BoxFit.cover)
+          image: DecorationImage(
+              image: AssetImage(provider.getHomeBackgroud()),fit:BoxFit.cover)
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -34,7 +37,9 @@ class _hadith_detailsState extends State<hadith_details> {
               right: 30,
               left: 20),
           decoration: BoxDecoration(
-            color: Color(0xFFF8F8F8).withOpacity(0.85),
+            color: provider.isDark()?
+                Color(0xFF141A2E).withOpacity(0.85):
+                Color(0xFFF8F8F8).withOpacity(0.85),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
@@ -42,9 +47,13 @@ class _hadith_detailsState extends State<hadith_details> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(Content.hadith_title,style: theme.textTheme.titleLarge,),
+                  Text(Content.hadith_title,style: theme.textTheme.titleLarge?.copyWith(
+                        color: provider.isDark() ? Color(0xFFFACC1D)
+                            :Colors.black,)
+                  ),
                   SizedBox(width: 10,),
-                  Icon(Icons.play_circle_fill_rounded),
+                  Icon(Icons.play_circle_fill_rounded,color: provider.isDark() ? Color(0xFFFACC1D).withOpacity(0.85)
+                      :Colors.black,),
                 ],
               ),
               Divider(
@@ -52,7 +61,9 @@ class _hadith_detailsState extends State<hadith_details> {
               ),
               Expanded(
                 child: ListView.builder(itemBuilder: (context,index) =>
-                    Text(Content.hadith_body,textAlign:TextAlign.center,)
+                    Text(Content.hadith_body,textAlign:TextAlign.center,style:theme.textTheme.bodyMedium?.copyWith(
+                      color: provider.isDark() ? Color(0xFFFACC1D)
+                          :Colors.black,),)
                 ),
               ),
 

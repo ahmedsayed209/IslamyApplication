@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamyapplication/core/Settings_Provider.dart';
 import 'package:islamyapplication/modules/Radio_view/radio_view.dart';
 import 'package:islamyapplication/modules/Settings_View/settings_view.dart';
 import 'package:islamyapplication/modules/quran_view/Quran_view.dart';
 import 'package:islamyapplication/modules/tasbih_view/Tasbih_view.dart';
+import 'package:provider/provider.dart';
 
 import '../modules/Hadeith_view/hadith_view.dart';
 
@@ -26,15 +29,17 @@ class _layout_viewState extends State<layout_view> {
   @override
   Widget build(BuildContext context) {
     var Themee = Theme.of(context);
+    var lang = AppLocalizations.of(context);
+    var provider = Provider.of<SettingsProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/images/home_bacck.png"),
+            image: AssetImage(provider.getHomeBackgroud()),
             fit: BoxFit.cover),
       ),
       child: Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("اسلامي")),
+          title: Center(child: Text(lang!.islami)),
         ),
         body: selectedWidget[stateIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -47,18 +52,18 @@ class _layout_viewState extends State<layout_view> {
           items: [
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/icons/Group 6.png")),
-                label: "Hadeth"),
+                label: lang.hadeth),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/icons/moshaf_blue.png")),
-                label: "Moshaf"),
+                label: lang.moshaf),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/icons/radio_blue.png")),
-                label: "Radio"),
+                label: lang.radio),
             BottomNavigationBarItem(
                 icon: ImageIcon(AssetImage("assets/icons/sebha_blue.png")),
-                label: "Seb7a"),
+                label: lang.seb7a),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), label: "Settings"),
+                icon: Icon(Icons.settings), label: lang.settings),
           ],
         ),
       ),

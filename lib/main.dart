@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islamyapplication/core/Settings_Provider.dart';
 import 'package:islamyapplication/core/application_theme_manager.dart';
 import 'package:islamyapplication/layout/layout_view.dart';
 import 'package:islamyapplication/modules/Hadeith_view/hadith_details.dart';
 import 'package:islamyapplication/modules/Hadeith_view/hadith_view.dart';
 import 'package:islamyapplication/modules/quran_view/Quran_details_view.dart';
 import 'package:islamyapplication/modules/splashView/splash_view.dart';
+import 'package:provider/provider.dart';
 
 void main()
 {
-  runApp(MyApplicationIsalami());
+  runApp(ChangeNotifierProvider(create: (context) => SettingsProvider() // Create The Singelton Object To be The Only instance object that created from this class
+      ,child: MyApplicationIsalami()));
 }
 
 class MyApplicationIsalami extends StatelessWidget
@@ -17,10 +22,16 @@ class MyApplicationIsalami extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<SettingsProvider>(context);
     return MaterialApp(
       title: "IslamiApp",
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      locale: Locale(provider.CuurentLang),
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ApplicationThemeManager.lightThemeData,
+      darkTheme: ApplicationThemeManager.DarkThemeData,
+      themeMode: provider.currentThemeMode,
       initialRoute: "/",
       routes: {
         SplashView.routeName : (context) => SplashView(),
