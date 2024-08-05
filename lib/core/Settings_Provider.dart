@@ -26,8 +26,8 @@ class SettingsProvider extends ChangeNotifier{
     return currentThemeMode ==ThemeMode.dark ?
     "assets/images/home_dark_background.png" :
     "assets/images/home_bacck.png" ;
-
   }
+
   String getSplashBackgroud()
   {
     return currentThemeMode ==ThemeMode.dark ?
